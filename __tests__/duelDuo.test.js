@@ -23,11 +23,13 @@ describe("Duel Duo tests", () => {
         expect(await driver.wait(until.elementLocated(By.id('choices')), 1000).isEnabled()).toBeTruthy()
     });
 
-  test("Removing a bot from Duo puts it back in choices", async () => {
-  await driver.get("http://localhost:8000");
-  await driver.findElement(By.id("draw")).click();
-  await driver.findElements(By.className("bot-btn")).click();
-  await driver.findElements(By.className("bot-btn")).click();
-  await driver.wait(until.elementLocated(By.id("choices")), 1000);
-});
+    test("Removing a bot from Duo puts it back in choices", async () => {
+      await driver.get("http://localhost:8000");
+      await driver.findElement(By.id("draw")).click();
+      await driver.findElements(By.className("bot-btn")).click();
+      await driver.findElements(By.className("bot-btn")).click();
+      await driver.wait(until.elementLocated(By.id("choices")), 1000);
+      const choicesDiv = await driver.findElement(By.id("choices"));
+      expect(choicesDiv).toBeTruthy();
+    });
 });

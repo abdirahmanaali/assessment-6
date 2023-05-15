@@ -29,6 +29,5 @@ describe("Duel Duo tests", () => {
   await driver.findElements(By.className("bot-btn")).click();
   await driver.findElements(By.className("bot-btn")).click();
   await driver.wait(until.elementLocated(By.id("choices")), 1000);
-  
 });
 });
